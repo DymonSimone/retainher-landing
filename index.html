@@ -446,25 +446,69 @@ nav a.nav-cta {
 .about {
   padding: 100px 10%;
   background: #FFFFFF;
-  text-align: center;
 }
 
-.about h2 {
+.about-inner {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  max-width: 960px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.about-photo-wrap {
+  flex-shrink: 0;
+}
+
+.about-photo {
+  width: 260px;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 20px;
+  border: 1px solid rgba(4,120,87,0.12);
+  display: block;
+}
+
+.about-text { flex: 1; min-width: 280px; }
+
+.about-text h2 {
   font-size: 34px;
   font-weight: 800;
   letter-spacing: -0.8px;
   margin-bottom: 20px;
 }
 
-.about p {
-  max-width: 580px;
-  margin: 0 auto 16px;
+.about-text p {
   font-size: 17px;
   line-height: 1.75;
   color: #5A9A7A;
+  margin-bottom: 16px;
 }
 
-.about p strong { color: #022C1A; font-weight: 600; }
+.about-text p strong { color: #022C1A; font-weight: 600; }
+
+.founder-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #047857;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+.founder-title {
+  font-size: 13px;
+  color: #5A9A7A;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .about-inner { flex-direction: column; align-items: center; text-align: center; }
+  .about-photo { width: 180px; height: 210px; }
+}
 
 /* ── BOTTOM CTA ──────────────────────────────────────── */
 
@@ -591,7 +635,7 @@ footer a:hover { color: #7DCCA4; }
 
   <div class="phone">
     <div class="screen">
-      <img src="app-screenshot.jpg" alt="RetainHer app">
+      <img src="app.png" alt="RetainHer app">
     </div>
   </div>
 
@@ -693,11 +737,23 @@ footer a:hover { color: #7DCCA4; }
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="section-eyebrow">About</div>
-  <h2>Why I built this</h2>
-  <p>RetainHer started with a conversation. A woman told me she'd been trying to grow her hair for years and couldn't figure out why she wasn't seeing progress. <strong>She didn't have a log. She didn't have data.</strong> She had no way to connect what she was doing to whether it was working.</p>
-  <p>I talked to 17 more women. Every single one said the same thing. So I built the tool I wish had existed — a tracker that turns your routine into data and your data into clarity.</p>
-  <p>I'm a solo founder based in Philadelphia. RetainHer is in early access now, and I'm working directly with the first members to make sure it actually changes something.</p>
+  <div class="about-inner">
+
+    <div class="about-photo-wrap">
+      <img src="Dymon_Moore.JPG" alt="Dymon Moore, founder of RetainHer" class="about-photo">
+    </div>
+
+    <div class="about-text">
+      <div class="section-eyebrow">About</div>
+      <h2>Why I built this</h2>
+      <p>RetainHer started with a conversation. A woman told me she'd been trying to grow her hair for years and couldn't figure out why she wasn't seeing progress. <strong>She didn't have a log. She didn't have data.</strong> She had no way to connect what she was doing to whether it was working.</p>
+      <p>I talked to 17 more women. Every single one said the same thing. So I built the tool I wish had existed — a tracker that turns your routine into data and your data into clarity.</p>
+      <p>I'm a solo founder based in Philadelphia. RetainHer is in early access now, and I'm working directly with the first members to make sure it actually changes something.</p>
+      <p class="founder-name">Dymon Moore</p>
+      <p class="founder-title">Founder, RetainHer · Philadelphia, PA</p>
+    </div>
+
+  </div>
 </section>
 
 <!-- BOTTOM CTA -->
