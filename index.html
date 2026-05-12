@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RetainHer — Hair Retention Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #F0FBF5;
+  color: #022C1A;
+}
+
+/* ── NAVBAR ──────────────────────────────────────────── */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 10%;
+  background: #F0FBF5;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #022C1A;
+  letter-spacing: -0.5px;
+}
+
+nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #5A9A7A;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+nav a:hover { color: #047857; }
+
+nav a.nav-cta {
+  color: #047857;
+  font-weight: 700;
+}
+
+/* ── HERO ────────────────────────────────────────────── */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 90px 10% 100px;
+  flex-wrap: wrap;
+  background: linear-gradient(160deg, #DCF5EA 0%, #F0FBF5 55%);
+}
+
+.hero-text { max-width: 500px; }
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #022C1A;
+  margin-bottom: 20px;
+}
+
+.hero h1 span { color: #047857; }
+
+.hero p {
+  font-size: 18px;
+  color: #5A9A7A;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+/* ── WAITLIST FORM ───────────────────────────────────── */
+
+.waitlist-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.waitlist-form input {
+  flex: 1;
+  min-width: 220px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(4,120,87,0.2);
+  font-size: 15px;
+  font-family: "DM Sans", sans-serif;
+  background: #FFFFFF;
+  color: #022C1A;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.waitlist-form input::placeholder { color: #5A9A7A; }
+.waitlist-form input:focus { border-color: #047857; }
+
+.btn {
+  background: #047857;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: "DM Sans", sans-serif;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+.btn:hover {
+  background: #035f46;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(4,120,87,0.22);
+}
+
+.hero-note {
+  font-size: 13px;
+  color: #5A9A7A;
+  font-weight: 500;
+}
+
+/* ── PHONE MOCKUP ────────────────────────────────────── */
+
+.phone {
+  width: 300px;
+  height: 648px;
+  background: #022C1A;
+  border-radius: 50px;
+  padding: 10px;
+  box-shadow: 0 40px 80px rgba(2,44,26,0.22);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  background: #F0FBF5;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ── PROBLEM STRIP ───────────────────────────────────── */
+
+.problem-strip {
+  background: #0C1A0F;
+  color: white;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.problem-strip h2 {
+  font-size: 34px;
+  font-weight: 800;
+  max-width: 640px;
+  margin: 0 auto 18px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+.problem-strip h2 span { color: #7DCCA4; }
+
+.problem-strip p {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+/* ── FEATURES ────────────────────────────────────────── */
+
+.features {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.features h2 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: #5A9A7A;
+  margin-bottom: 52px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.feature {
+  background: #FFFFFF;
+  padding: 28px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(4,120,87,0.12);
+  text-align: left;
+  transition: 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(4,120,87,0.1);
+}
+
+.feature-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #047857;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #022C1A;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.feature p {
+  font-size: 14px;
+  color: #5A9A7A;
+  line-height: 1.6;
+}
+
+/* ── QUOTE ───────────────────────────────────────────── */
+
+.quote-section {
+  padding: 80px 10%;
+  background: #DCF5EA;
+  text-align: center;
+}
+
+.quote {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 22px;
+  line-height: 1.55;
+  color: #022C1A;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.3px;
+}
+
+.quote-attr {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #5A9A7A;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── PRICING ─────────────────────────────────────────── */
+
+.pricing {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.pricing h2 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin-bottom: 8px;
+}
+
+.pricing-sub {
+  font-size: 16px;
+  color: #5A9A7A;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.price-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(4,120,87,0.12);
+  padding: 32px 28px;
+  text-align: left;
+  position: relative;
+}
+
+.price-card.featured {
+  border-color: #047857;
+  border-width: 2px;
+}
+
+.price-badge {
+  display: inline-block;
+  background: rgba(4,120,87,0.1);
+  color: #047857;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.price-badge.featured {
+  background: #047857;
+  color: white;
+}
+
+.price-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #5A9A7A;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.price-amount {
+  font-size: 42px;
+  font-weight: 800;
+  color: #022C1A;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.price-amount span {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  color: #5A9A7A;
+}
+
+.price-period {
+  font-size: 13px;
+  color: #5A9A7A;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.price-divider {
+  height: 1px;
+  background: rgba(4,120,87,0.1);
+  margin-bottom: 20px;
+}
+
+.price-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-features li {
+  font-size: 14px;
+  color: #022C1A;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.price-features li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #047857;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.price-note {
+  font-size: 12px;
+  color: #5A9A7A;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* ── ABOUT ───────────────────────────────────────────── */
+
+.about {
+  padding: 100px 10%;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 580px;
+  margin: 0 auto 16px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #5A9A7A;
+}
+
+.about p strong { color: #022C1A; font-weight: 600; }
+
+/* ── BOTTOM CTA ──────────────────────────────────────── */
+
+.cta-section {
+  background: #047857;
+  padding: 90px 10%;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.cta-section p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.cta-section .waitlist-form { justify-content: center; }
+
+.cta-section .waitlist-form input {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+  color: white;
+}
+
+.cta-section .waitlist-form input::placeholder { color: rgba(255,255,255,0.5); }
+.cta-section .waitlist-form input:focus { border-color: white; }
+
+.cta-section .btn {
+  background: white;
+  color: #047857;
+}
+
+.cta-section .btn:hover {
+  background: #DCF5EA;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+}
+
+.cta-section .hero-note { color: rgba(255,255,255,0.5); margin-top: 14px; }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+
+footer {
+  padding: 32px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0C1A0F;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-logo {
+  font-weight: 800;
+  color: #7DCCA4;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+}
+
+footer span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+
+footer a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+footer a:hover { color: #7DCCA4; }
+
+/* ── MOBILE ──────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .hero { text-align: center; padding: 60px 6% 70px; gap: 50px; }
+  .hero h1 { font-size: 38px; }
+  .waitlist-form { justify-content: center; }
+  .feature { text-align: center; }
+  footer { justify-content: center; text-align: center; }
+  header { padding: 20px 6%; }
+  nav { display: none; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">RetainHer</div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#waitlist" class="nav-cta">Get Early Access</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-text">
+    <div class="hero-eyebrow">Now in Early Access</div>
+    <h1>Your hair is growing.<br><span>Keep what grows.</span></h1>
+    <p>Black women grow up to 6 inches of hair a year. Most don't see it — not because it's not growing, but because there's no system to track what's being lost. RetainHer is that system.</p>
+
+    <form class="waitlist-form" id="waitlist" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit" class="btn">Get Early Access</button>
+    </form>
+    <p class="hero-note">First 20 members get founder pricing — $4.99/mo, locked in forever.</p>
+  </div>
+
+  <div class="phone">
+    <div class="screen">
+      <img src="app-screenshot.jpg" alt="RetainHer app">
+    </div>
+  </div>
+
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-strip">
+  <h2>You can't fix what you <span>can't see.</span></h2>
+  <p>Most women have no log, no data, and no feedback loop. You buy products based on reviews. You trim and feel like you're starting over. You can't tell if anything is actually working. RetainHer changes that.</p>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+
+  <div class="section-eyebrow">What It Tracks</div>
+  <h2>Three numbers that explain everything</h2>
+  <p class="section-sub">When wash days, products, and trims are in one place — the patterns become impossible to miss.</p>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-label">Wash Days</div>
+      <h3>Every session, logged</h3>
+      <p>Record what you used, how long each step took, and how much breakage you saw. The trend reveals itself over time.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-label">Products</div>
+      <h3>What actually works</h3>
+      <p>See which products are followed by good days and which ones aren't. Your own data tells you what no review can.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-label">Trims</div>
+      <h3>Length retained, not lost</h3>
+      <p>Log every visit. Track how much you cut versus how much you grew. The math makes your retention visible.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-label">Breakage Trends</div>
+      <h3>Watch it go down</h3>
+      <p>As your routine improves, your breakage chart shows it. That's the moment you know something is actually working.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <p class="quote">"I always thought my hair wasn't growing. It was growing — I just had no way to see that I was losing it just as fast as it came in."</p>
+  <p class="quote-attr">The insight that started RetainHer</p>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+
+  <div class="section-eyebrow">Pricing</div>
+  <h2>Simple. No freemium.</h2>
+  <p class="pricing-sub">Every member who joins is making a real commitment. That's the point.</p>
+
+  <div class="pricing-grid">
+
+    <div class="price-card featured">
+      <div class="price-badge featured">Founder — First 20</div>
+      <div class="price-name">Founder Rate</div>
+      <div class="price-amount">$4.99<span>/mo</span></div>
+      <div class="price-period">Locked in forever — never goes up</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Wash day log with breakage tracking</li>
+        <li>Product log and correlation tracking</li>
+        <li>Trim history and length retention</li>
+        <li>All growth charts and trend data</li>
+        <li>Direct access to the founder</li>
+        <li>Shape the product roadmap</li>
+      </ul>
+      <p class="price-note">19 spots remaining. Rises to $9.99 when full.</p>
+    </div>
+
+    <div class="price-card">
+      <div class="price-badge">Standard</div>
+      <div class="price-name">At Launch</div>
+      <div class="price-amount">$9.99<span>/mo</span></div>
+      <div class="price-period">Full price after early access closes</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Wash day log with breakage tracking</li>
+        <li>Product log and correlation tracking</li>
+        <li>Trim history and length retention</li>
+        <li>All growth charts and trend data</li>
+      </ul>
+      <p class="price-note">Available when the app launches publicly.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-eyebrow">About</div>
+  <h2>Why I built this</h2>
+  <p>RetainHer started with a conversation. A woman told me she'd been trying to grow her hair for years and couldn't figure out why she wasn't seeing progress. <strong>She didn't have a log. She didn't have data.</strong> She had no way to connect what she was doing to whether it was working.</p>
+  <p>I talked to 17 more women. Every single one said the same thing. So I built the tool I wish had existed — a tracker that turns your routine into data and your data into clarity.</p>
+  <p>I'm a solo founder based in Philadelphia. RetainHer is in early access now, and I'm working directly with the first members to make sure it actually changes something.</p>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-section">
+  <h2>Be one of the first 20.</h2>
+  <p>Founder pricing is $4.99/month, locked in forever. 19 spots remaining.</p>
+  <form class="waitlist-form" onsubmit="handleSubmit(event)">
+    <input type="email" placeholder="your@email.com" required>
+    <button type="submit" class="btn">Join — $4.99/mo</button>
+  </form>
+  <p class="hero-note">Rises to $9.99 at launch. Cancel anytime.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">RetainHer</span>
+  <span>© 2026 RetainHer · Philadelphia, PA</span>
+  <a href="mailto:hello@retainher.com">hello@retainher.com</a>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const input = e.target.querySelector('input[type="email"]');
+  const btn   = e.target.querySelector('button');
+  btn.textContent = "You're on the list";
+  btn.style.opacity = '0.75';
+  btn.disabled = true;
+  input.disabled = true;
+  // Replace with your form handler — Formspree, Airtable, or Mailchimp
+  console.log('Email submitted:', input.value);
+}
+</script>
+
+</body>
+</html>
